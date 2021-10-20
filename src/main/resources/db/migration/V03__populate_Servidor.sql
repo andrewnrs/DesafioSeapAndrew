@@ -1,0 +1,2 @@
+INSERT INTO `seap`.`servidor` (`matricula`, `nome`, `Lotacao_id`) VALUES ('8927364', 'teste1', '1');
+INSERT INTO `seap`.`servidor` (`matricula`, `nome`, `Lotacao_id`) VALUES ('2355623', 'teste2', '2');
