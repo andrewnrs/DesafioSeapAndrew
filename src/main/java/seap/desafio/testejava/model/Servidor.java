@@ -3,16 +3,18 @@ package seap.desafio.testejava.model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Entity
 public class Servidor {
     private int id;
     private String matricula;
     private String nome;
     private Timestamp dataCadastro;
     private int lotacaoId;
-    private seap.desafio.testejava.model.Lotacao Lotacao;
+//    private Lotacao Lotacao;
 
     @Id
     @Column(name = "id", table = "servidor", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
     public int getId() {
         return id;
     }
@@ -52,7 +54,7 @@ public class Servidor {
     }
 
     @Basic
-    @Column(name = "Lotacao_id", table = "servidor", nullable = false)
+    @Column(name = "lotacao_id", table = "servidor", nullable = false)
     public int getLotacaoId() {
         return lotacaoId;
     }
@@ -88,13 +90,13 @@ public class Servidor {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "Lotacao_id", referencedColumnName = "id", nullable = false, table = "servidor")
-    public seap.desafio.testejava.model.Lotacao getLotacao() {
-        return Lotacao;
-    }
-
-    public void setLotacao(seap.desafio.testejava.model.Lotacao lotacao) {
-        Lotacao = lotacao;
-    }
+//    @OneToOne
+//    @JoinColumn(name = "Lotacao_id", referencedColumnName = "id", nullable = false, table = "servidor")
+//    public Lotacao getLotacao() {
+//        return Lotacao;
+//    }
+//
+//    public void setLotacao(Lotacao lotacao) {
+//        Lotacao = lotacao;
+//    }
 }
