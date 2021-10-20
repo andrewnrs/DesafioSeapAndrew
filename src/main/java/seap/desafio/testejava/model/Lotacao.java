@@ -1,23 +1,35 @@
 package seap.desafio.testejava.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
+@Entity
 public class Lotacao {
     private int id;
+    private String nome;
     private String descricao;
     private Timestamp dataCadastro;
 
     @Id
     @Column(name = "id", table = "lotacao", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "nome", table = "lotacao", nullable = false, length = 400)
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     @Basic
